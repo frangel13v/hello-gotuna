@@ -2,6 +2,6 @@ version: "3.0"
 services:
   gotuna:
     build: .
-    image: gotuna:alpine
+    image: hello-gotuna
     ports:
       - "8888:8888"
