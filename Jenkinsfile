@@ -2,20 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('SCM') {
+        stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/frangel13v/hello-gotuna'
-
+                timestamps{
+                    ansiColor('css') {
+                        sh "docker-compose build"
+                    }
+                }
             }
         }
         stage('Build') {
             steps {
-                sh "docker-compose build"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh "docker-compose up -d"
+                timestamps{
+                    ansiColor('css') {
+                        sh "docker-compose up -d"
+                    }
+                }
             }
         }
     }
