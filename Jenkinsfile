@@ -11,7 +11,7 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
+        stage('Deploy') {
             steps {
                 timestamps{
                     ansiColor('css') {
